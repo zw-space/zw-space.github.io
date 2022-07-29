@@ -159,7 +159,7 @@
     <ul class="sub-nav menus_item_child ">
       
       <li>
-        <a href="/about">
+        <a target="_blank" rel="noopener" href="http://blog.wzspace.cn">
           
           <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
           
@@ -364,7 +364,7 @@
           
           <i class="fa-solid fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
           
-          <span>我的笔记</span>
+          <span>在线笔记</span>
         </a>
       </li>
       
@@ -382,7 +382,7 @@
           
           <i class="fa-solid fa-code" style="margin-top: -20px; zoom: 0.6;"></i>
           
-          <span>我的API</span>
+          <span>API资源</span>
         </a>
       </li>
       
@@ -391,7 +391,7 @@
           
           <i class="fa-solid fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
           
-          <span>我的数据</span>
+          <span>数据资源</span>
         </a>
       </li>
       
@@ -502,7 +502,7 @@
               
                 <li>
 
-                  <a href="/about " style="margin-left:75px">
+                  <a target="_blank" rel="noopener" href="http://blog.wzspace.cn " style="margin-left:75px">
 				  
 				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
 			      
@@ -721,7 +721,7 @@
 				  
 				   <i class="fa fa-solid fa-book" style="position: absolute;left:50px" ></i>
 			      
-		          <span>我的笔记</span>
+		          <span>在线笔记</span>
                   </a>
                 </li>
               
@@ -741,7 +741,7 @@
 				  
 				   <i class="fa fa-solid fa-code" style="position: absolute;left:50px" ></i>
 			      
-		          <span>我的API</span>
+		          <span>API资源</span>
                   </a>
                 </li>
               
@@ -751,7 +751,7 @@
 				  
 				   <i class="fa fa-solid fa-database" style="position: absolute;left:50px" ></i>
 			      
-		          <span>我的数据</span>
+		          <span>数据资源</span>
                   </a>
                 </li>
               
@@ -984,7 +984,7 @@
                 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
 <li><p>Demo：<a target="_blank" rel="noopener" href="http://note.wzspace.cn/">http://note.wzspace.cn/</a></p>
 </li>
-<li><p>本文使用到宝塔面板管理站点，安装参考：<a href="http://wzspace.cn/article/52020/">宝塔面板安装和基本配置</a></p>
+<li><p>本文使用到宝塔面板管理站点，安装参考：<a href="/article/52020/">宝塔面板安装和基本配置</a></p>
 </li>
 </ul>
 <h2 id="新建站点"><a href="#新建站点" class="headerlink" title="新建站点"></a>新建站点</h2><ul>
@@ -1018,7 +1018,7 @@
 <h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><ul>
 <li>到压缩包保存目录解压</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> -zxvf leanote-linux-amd64-v2.6.1.bin.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">tar -zxvf leanote-linux-amd64-v2.6.1.bin.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
 <li><p>如果前面新建了站点，建议将leanote目录移动至目录 <code>/www/wwwroot/note.wzspace.cn/</code>，方便管理</p>
@@ -1026,22 +1026,22 @@
 <li><p><code>note.wzspace.cn</code>是站点名称</p>
 </li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mv</span> leanote /www/wwwroot/note.wzspace.cn/
-<span class="token builtin class-name">cd</span> /www/wwwroot//note.wzspace.cn/
-<span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mv leanote /www/wwwroot/note.wzspace.cn/
+cd /www/wwwroot//note.wzspace.cn/
+ls<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="导入数据库"><a href="#导入数据库" class="headerlink" title="导入数据库"></a>导入数据库</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> leanote
+<h3 id="导入数据库"><a href="#导入数据库" class="headerlink" title="导入数据库"></a>导入数据库</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">cd leanote
 mongorestore -h localhost -d leanote --dir mongodb_backup/leanote_install_data/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h3 id="更改配置"><a href="#更改配置" class="headerlink" title="更改配置"></a>更改配置</h3><p>更改文件<code>leanote/conf/app.conf</code>文件中的<code>app.secret</code>的值，随意更改，为了安全</p>
-<h2 id="启动Leanote"><a href="#启动Leanote" class="headerlink" title="启动Leanote"></a>启动Leanote</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">bash</span> bin/run.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="启动Leanote"><a href="#启动Leanote" class="headerlink" title="启动Leanote"></a>启动Leanote</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">bash bin/run.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>启动成功后：</p>
 <p><img src="https://i2.100024.xyz/2022/07/22/ulrfj7.webp" alt="启动Leanote"></p>
 <p>启动后通过<code>note.wzspace.cn</code>访问或者通过<code>公网IP:9000</code>访问：</p>
 <p><img src="https://i2.100024.xyz/2022/07/22/vg5dnf.webp" alt="Leanote"></p>
 <h2 id="后台运行"><a href="#后台运行" class="headerlink" title="后台运行"></a>后台运行</h2><p>直接这样启动，关闭<code>ssh</code>终端后leanote就会关闭，可以放到后台运行：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">nohup</span> <span class="token function">bash</span> bin/run.sh <span class="token operator">&gt;</span> leanote_run.log <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nohup bash bin/run.sh &gt; leanote_run.log 2&gt;&amp;1 &amp;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
 <li>更多命令，参考：<a href="http://wzspace.cn/article/61876/">CentOS7 进程管理</a></li>

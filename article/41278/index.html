@@ -159,7 +159,7 @@
     <ul class="sub-nav menus_item_child ">
       
       <li>
-        <a href="/about">
+        <a target="_blank" rel="noopener" href="http://blog.wzspace.cn">
           
           <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
           
@@ -364,7 +364,7 @@
           
           <i class="fa-solid fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
           
-          <span>我的笔记</span>
+          <span>在线笔记</span>
         </a>
       </li>
       
@@ -382,7 +382,7 @@
           
           <i class="fa-solid fa-code" style="margin-top: -20px; zoom: 0.6;"></i>
           
-          <span>我的API</span>
+          <span>API资源</span>
         </a>
       </li>
       
@@ -391,7 +391,7 @@
           
           <i class="fa-solid fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
           
-          <span>我的数据</span>
+          <span>数据资源</span>
         </a>
       </li>
       
@@ -502,7 +502,7 @@
               
                 <li>
 
-                  <a href="/about " style="margin-left:75px">
+                  <a target="_blank" rel="noopener" href="http://blog.wzspace.cn " style="margin-left:75px">
 				  
 				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
 			      
@@ -721,7 +721,7 @@
 				  
 				   <i class="fa fa-solid fa-book" style="position: absolute;left:50px" ></i>
 			      
-		          <span>我的笔记</span>
+		          <span>在线笔记</span>
                   </a>
                 </li>
               
@@ -741,7 +741,7 @@
 				  
 				   <i class="fa fa-solid fa-code" style="position: absolute;left:50px" ></i>
 			      
-		          <span>我的API</span>
+		          <span>API资源</span>
                   </a>
                 </li>
               
@@ -751,7 +751,7 @@
 				  
 				   <i class="fa fa-solid fa-database" style="position: absolute;left:50px" ></i>
 			      
-		          <span>我的数据</span>
+		          <span>数据资源</span>
                   </a>
                 </li>
               
@@ -986,356 +986,356 @@
                 
                 
                 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
-<li><p>页面预览：<a href="http://wzspace.cn/stat/">http://wzspace.cn/stat/</a></p>
+<li><p>页面预览：<a href="/stat/">点我</a></p>
 </li>
 <li><p>想法：偶然看到，甚是喜欢，但奈何原博主没有分享资源</p>
 </li>
 </ul>
-<h2 id="新建统计页面"><a href="#新建统计页面" class="headerlink" title="新建统计页面"></a>新建统计页面</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page <span class="token function">stat</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="新建统计页面"><a href="#新建统计页面" class="headerlink" title="新建统计页面"></a>新建统计页面</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page stat<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>然后在文件内容的双线内添加：</p>
 <pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">type: stat
 layout: stat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="新建统计页面模板文件"><a href="#新建统计页面模板文件" class="headerlink" title="新建统计页面模板文件"></a>新建统计页面模板文件</h2><p>在主题目录的<code>layout/</code>文件夹下新建<code>stat.ejs</code>模板文件，然后用<code>vim</code>也好，用其他工具也好，写入以下内容：</p>
-<pre class="line-numbers language-ejs" data-language="ejs"><code class="language-ejs"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
-    <span class="token comment">/* don't remove. */</span>
-    <span class="token selector">.about-cover</span> <span class="token punctuation">{</span>
-        <span class="token property">height</span><span class="token punctuation">:</span> 75vh<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+<pre class="line-numbers language-ejs" data-language="ejs"><code class="language-ejs">&lt;style type="text/css"&gt;
+    /* don't remove. */
+    .about-cover {
+        height: 75vh;
+    }
+&lt;/style&gt;
 
-<span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">partial</span><span class="token punctuation">(</span><span class="token string">'_partial/bg-cover'</span><span class="token punctuation">)</span> </span><span class="token delimiter punctuation">%&gt;</span></span>
+&lt;%- partial('_partial/bg-cover') %&gt;
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>main</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container chip-container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card-content<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tag-title center-align<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%=</span><span class="token language-javascript"> theme<span class="token punctuation">.</span>stat<span class="token punctuation">.</span>icon </span><span class="token delimiter punctuation">%&gt;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span><span class="token entity named-entity" title="&nbsp;">&amp;nbsp;</span><span class="token entity named-entity" title="&nbsp;">&amp;nbsp;</span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%=</span><span class="token language-javascript"> theme<span class="token punctuation">.</span>stat<span class="token punctuation">.</span>title </span><span class="token delimiter punctuation">%&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+&lt;main class="content"&gt;
+    &lt;div class="container chip-container"&gt;
+        &lt;div class="card"&gt;
+            &lt;div class="card-content"&gt;
+                &lt;div class="tag-title center-align"&gt;
+                    &lt;i class="&lt;%= theme.stat.icon %&gt;"&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp;&lt;%= theme.stat.title %&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
 
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card-content<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token keyword">if</span> <span class="token punctuation">(</span>theme<span class="token punctuation">.</span>stat<span class="token punctuation">.</span>text<span class="token punctuation">)</span> <span class="token punctuation">{</span> </span><span class="token delimiter punctuation">%&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
-                    <span class="token selector">#stat-text</span> <span class="token punctuation">{</span>
-                        <span class="token property">-webkit-text-size-adjust</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
-                        <span class="token property">line-height</span><span class="token punctuation">:</span> 1.5<span class="token punctuation">;</span>
-                        <span class="token property">font-family</span><span class="token punctuation">:</span> -apple-system<span class="token punctuation">,</span>BlinkMacSystemFont<span class="token punctuation">,</span><span class="token string">"Segoe UI"</span><span class="token punctuation">,</span>Roboto<span class="token punctuation">,</span>Oxygen-Sans<span class="token punctuation">,</span>Ubuntu<span class="token punctuation">,</span>Cantarell<span class="token punctuation">,</span><span class="token string">"Helvetica Neue"</span><span class="token punctuation">,</span>sans-serif<span class="token punctuation">;</span>
-                        <span class="token property">font-weight</span><span class="token punctuation">:</span> normal<span class="token punctuation">;</span>
-                        <span class="token property">--fa-font-brands</span><span class="token punctuation">:</span> normal 400 1em/1 <span class="token string">"Font Awesome 6 Brands"</span><span class="token punctuation">;</span>
-                        <span class="token property">--fa-font-regular</span><span class="token punctuation">:</span> normal 400 1em/1 <span class="token string">"Font Awesome 6 Free"</span><span class="token punctuation">;</span>
-                        <span class="token property">--fa-font-solid</span><span class="token punctuation">:</span> normal 900 1em/1 <span class="token string">"Font Awesome 6 Free"</span><span class="token punctuation">;</span>
-                        <span class="token property">color</span><span class="token punctuation">:</span> #34495e<span class="token punctuation">;</span>
-                        <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
-                        <span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
-                        <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
-                        <span class="token property">padding</span><span class="token punctuation">:</span> 0 .75rem<span class="token punctuation">;</span>
-                        <span class="token property">min-height</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
-                        <span class="token property">opacity</span><span class="token punctuation">:</span> .6<span class="token punctuation">;</span>
-                        <span class="token property">font-size</span><span class="token punctuation">:</span> 1.1rem<span class="token punctuation">;</span>
-                        <span class="token property">width</span><span class="token punctuation">:</span> 83.3333333333%<span class="token punctuation">;</span>
-                        <span class="token property">left</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
-                        <span class="token property">right</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
-                        <span class="token property">margin-left</span><span class="token punctuation">:</span> 8.3333333333%<span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
-                </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stat-text<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>row<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                            <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%=</span><span class="token language-javascript"> theme<span class="token punctuation">.</span>stat<span class="token punctuation">.</span>text </span><span class="token delimiter punctuation">%&gt;</span></span>
-                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span><span class="token punctuation">&gt;</span></span>
-                <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token punctuation">}</span> </span><span class="token delimiter punctuation">%&gt;</span></span>
+        &lt;div class="card"&gt;
+            &lt;div class="card-content"&gt;
+                &lt;% if (theme.stat.text) { %&gt;
+                &lt;style&gt;
+                    #stat-text {
+                        -webkit-text-size-adjust: 100%;
+                        line-height: 1.5;
+                        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+                        font-weight: normal;
+                        --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+                        --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
+                        --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
+                        color: #34495e;
+                        text-align: center;
+                        float: left;
+                        box-sizing: border-box;
+                        padding: 0 .75rem;
+                        min-height: 1px;
+                        opacity: .6;
+                        font-size: 1.1rem;
+                        width: 83.3333333333%;
+                        left: auto;
+                        right: auto;
+                        margin-left: 8.3333333333%;
+                    }
+                &lt;/style&gt;
+                &lt;div id="stat-text"&gt;
+                    &lt;div class="row"&gt;
+                        &lt;div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text"&gt;
+                            &lt;%= theme.stat.text %&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;br&gt;
+                &lt;hr&gt;
+                &lt;% } %&gt;
 
-                <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> page<span class="token punctuation">.</span>content </span><span class="token delimiter punctuation">%&gt;</span></span>
+                &lt;%- page.content %&gt;
 
-                <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token keyword">if</span> <span class="token punctuation">(</span>theme<span class="token punctuation">.</span>stat<span class="token punctuation">.</span>show_post<span class="token punctuation">)</span> <span class="token punctuation">{</span> </span><span class="token delimiter punctuation">%&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%=</span><span class="token language-javascript"> theme<span class="token punctuation">.</span>stat<span class="token punctuation">.</span>title </span><span class="token delimiter punctuation">%&gt;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%=</span><span class="token language-javascript"> theme<span class="token punctuation">.</span>stat<span class="token punctuation">.</span>title </span><span class="token delimiter punctuation">%&gt;</span></span><span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>headerlink<span class="token punctuation">"</span></span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%=</span><span class="token language-javascript"> theme<span class="token punctuation">.</span>stat<span class="token punctuation">.</span>title </span><span class="token delimiter punctuation">%&gt;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%=</span><span class="token language-javascript"> theme<span class="token punctuation">.</span>stat<span class="token punctuation">.</span>title </span><span class="token delimiter punctuation">%&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
-                <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript">
-                    <span class="token keyword">var</span> article_posts <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-                    site<span class="token punctuation">.</span>posts<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">post</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-                        article_posts<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>post<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                &lt;% if (theme.stat.show_post) { %&gt;
+                &lt;h1 id="&lt;%= theme.stat.title %&gt;"&gt;&lt;a href="#&lt;%= theme.stat.title %&gt;" class="headerlink" title="&lt;%= theme.stat.title %&gt;"&gt;&lt;/a&gt;&lt;%= theme.stat.title %&gt;&lt;/h1&gt;
+                &lt;%
+                    var article_posts = [];
+                    site.posts.forEach(post =&gt; {
+                        article_posts.push(post);
+                    });
                     
-                    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> article_posts<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> article_posts<span class="token punctuation">.</span>length <span class="token operator">-</span> i<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                            <span class="token keyword">if</span> <span class="token punctuation">(</span>article_posts<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>date <span class="token operator">&gt;</span> article_posts<span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>date<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                                <span class="token keyword">var</span> tmp <span class="token operator">=</span> article_posts<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-                                article_posts<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> article_posts<span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-                                article_posts<span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
-                            <span class="token punctuation">}</span>
-                        <span class="token punctuation">}</span>
-                    <span class="token punctuation">}</span>
+                    for (var i = 0; i &lt; article_posts.length - 1; i++) {
+                        for (var j = 1; j &lt; article_posts.length - i; j++) {
+                            if (article_posts[j].date &gt; article_posts[j-1].date) {
+                                var tmp = article_posts[j];
+                                article_posts[j] = article_posts[j-1];
+                                article_posts[j-1] = tmp;
+                            }
+                        }
+                    }
                     
-                    <span class="token keyword">var</span> post_date_index <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-                    article_posts<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">post</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-                        pwd <span class="token operator">=</span> post<span class="token punctuation">.</span>password<span class="token punctuation">;</span>
-                        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>pwd <span class="token operator">&amp;&amp;</span> pwd<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span><span class="token punctuation">(</span>post<span class="token punctuation">.</span>hide <span class="token operator">!=</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">date</span><span class="token punctuation">(</span>post<span class="token punctuation">.</span>date<span class="token punctuation">,</span> <span class="token string">'YYYY-MM'</span><span class="token punctuation">)</span> <span class="token operator">!=</span> post_date_index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                                post_date_index <span class="token operator">=</span> <span class="token function">date</span><span class="token punctuation">(</span>post<span class="token punctuation">.</span>date<span class="token punctuation">,</span> <span class="token string">'YYYY-MM'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                </span><span class="token delimiter punctuation">%&gt;</span></span>
+                    var post_date_index = null;
+                    article_posts.forEach(post =&gt; {
+                        pwd = post.password;
+                        if ((!(pwd &amp;&amp; pwd.length &gt; 0))&amp;&amp;(post.hide != true)) {
+                            if (date(post.date, 'YYYY-MM') != post_date_index) {
+                                post_date_index = date(post.date, 'YYYY-MM');
+                %&gt;
 
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%=</span><span class="token language-javascript"> post_date_index </span><span class="token delimiter punctuation">%&gt;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%=</span><span class="token language-javascript"> post_date_index </span><span class="token delimiter punctuation">%&gt;</span></span><span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>headerlink<span class="token punctuation">"</span></span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%=</span><span class="token language-javascript"> post_date_index </span><span class="token delimiter punctuation">%&gt;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%=</span><span class="token language-javascript"> post_date_index </span><span class="token delimiter punctuation">%&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
-                            <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token punctuation">}</span> </span><span class="token delimiter punctuation">%&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>
-                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>code</span><span class="token punctuation">&gt;</span></span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%=</span><span class="token language-javascript"> <span class="token function">date</span><span class="token punctuation">(</span>post<span class="token punctuation">.</span>date<span class="token punctuation">,</span> <span class="token string">'YYYY-MM-DD'</span><span class="token punctuation">)</span> </span><span class="token delimiter punctuation">%&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>code</span><span class="token punctuation">&gt;</span></span><span class="token entity named-entity" title=" ">&amp;ensp;</span>-
-                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">url_for</span><span class="token punctuation">(</span>post<span class="token punctuation">.</span>path<span class="token punctuation">)</span> </span><span class="token delimiter punctuation">%&gt;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%=</span><span class="token language-javascript"> post<span class="token punctuation">.</span>title </span><span class="token delimiter punctuation">%&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
-                        <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token punctuation">}</span> </span><span class="token delimiter punctuation">%&gt;</span></span>
-                    <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </span><span class="token delimiter punctuation">%&gt;</span></span>
-                <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token punctuation">}</span> </span><span class="token delimiter punctuation">%&gt;</span></span>
+                &lt;h2 id="&lt;%= post_date_index %&gt;"&gt;&lt;a href="#&lt;%= post_date_index %&gt;" class="headerlink" title="&lt;%= post_date_index %&gt;"&gt;&lt;/a&gt;&lt;%= post_date_index %&gt;&lt;/h2&gt;
+                            &lt;% } %&gt;
+                &lt;p&gt;
+                    &lt;code&gt;&lt;%= date(post.date, 'YYYY-MM-DD') %&gt;&lt;/code&gt;&amp;ensp;-
+                    &lt;a href="&lt;%- url_for(post.path) %&gt;"&gt;&lt;%= post.title %&gt;&lt;/a&gt;
+                &lt;/p&gt;
+                        &lt;% } %&gt;
+                    &lt;% }); %&gt;
+                &lt;% } %&gt;
 
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+            &lt;/div&gt;
+        &lt;/div&gt;
 
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
-            <span class="token selector">#posts-chart,
+        &lt;style type="text/css"&gt;
+            #posts-chart,
             #categories-chart,
-            #tags-chart</span> <span class="token punctuation">{</span>
-                <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
-                <span class="token property">height</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
-                <span class="token property">margin</span><span class="token punctuation">:</span> 0.5rem auto<span class="token punctuation">;</span>
-                <span class="token property">padding</span><span class="token punctuation">:</span> 0.5rem<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card-content<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>chart col s12 m6 l4<span class="token punctuation">"</span></span> <span class="token attr-name">data-aos</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zoom-in-up<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>posts-chart<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card-content<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>chart col s12 m6 l4<span class="token punctuation">"</span></span> <span class="token attr-name">data-aos</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zoom-in-up<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tags-chart<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card-content<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>chart col s12 m6 l4<span class="token punctuation">"</span></span> <span class="token attr-name">data-aos</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zoom-in-up<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>categories-chart<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-        <span class="token comment">&lt;!-- &lt;div class="card"&gt;
+            #tags-chart {
+                width: 100%;
+                height: 300px;
+                margin: 0.5rem auto;
+                padding: 0.5rem;
+            }
+        &lt;/style&gt;
+        &lt;div class="card"&gt;
+            &lt;div class="card-content"&gt;
+                &lt;div class="chart col s12 m6 l4" data-aos="zoom-in-up"&gt;
+                    &lt;div id="posts-chart"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card"&gt;
+            &lt;div class="card-content"&gt;
+                &lt;div class="chart col s12 m6 l4" data-aos="zoom-in-up"&gt;
+                    &lt;div id="tags-chart"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card"&gt;
+            &lt;div class="card-content"&gt;
+                &lt;div class="chart col s12 m6 l4" data-aos="zoom-in-up"&gt;
+                    &lt;div id="categories-chart"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- &lt;div class="card"&gt;
             &lt;div class="card-content"&gt;
                 
             &lt;/div&gt;
-        &lt;/div&gt; --&gt;</span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        &lt;/div&gt; --&gt;
+    &lt;/div&gt;
 
-    <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token keyword">if</span> <span class="token punctuation">(</span>site<span class="token punctuation">.</span>categories <span class="token operator">&amp;&amp;</span> site<span class="token punctuation">.</span>categories<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> </span><span class="token delimiter punctuation">%&gt;</span></span>
-    <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">partial</span><span class="token punctuation">(</span><span class="token string">'_widget/category-radar'</span><span class="token punctuation">)</span> </span><span class="token delimiter punctuation">%&gt;</span></span>
-    <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token punctuation">}</span> </span><span class="token delimiter punctuation">%&gt;</span></span>
+    &lt;% if (site.categories &amp;&amp; site.categories.length &gt; 0) { %&gt;
+    &lt;%- partial('_widget/category-radar') %&gt;
+    &lt;% } %&gt;
 
             
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> theme<span class="token punctuation">.</span>jsDelivr<span class="token punctuation">.</span>url </span><span class="token delimiter punctuation">%&gt;</span></span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">url_for</span><span class="token punctuation">(</span>theme<span class="token punctuation">.</span>libs<span class="token punctuation">.</span>js<span class="token punctuation">.</span>echarts<span class="token punctuation">)</span> </span><span class="token delimiter punctuation">%&gt;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
-        <span class="token keyword">let</span> postsChart <span class="token operator">=</span> echarts<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'posts-chart'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">let</span> categoriesChart <span class="token operator">=</span> echarts<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'categories-chart'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">let</span> tagsChart <span class="token operator">=</span> echarts<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'tags-chart'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    &lt;script type="text/javascript" src="&lt;%- theme.jsDelivr.url %&gt;&lt;%- url_for(theme.libs.js.echarts) %&gt;"&gt;&lt;/script&gt;
+    &lt;script&gt;
+        let postsChart = echarts.init(document.getElementById('posts-chart'));
+        let categoriesChart = echarts.init(document.getElementById('categories-chart'));
+        let tagsChart = echarts.init(document.getElementById('tags-chart'));
     
-        <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript">
-        <span class="token comment">/* calculate postsOption data. */</span>
-        <span class="token keyword">var</span> startDate <span class="token operator">=</span> <span class="token function">moment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">subtract</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'years'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">startOf</span><span class="token punctuation">(</span><span class="token string">'month'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">var</span> endDate <span class="token operator">=</span> <span class="token function">moment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">endOf</span><span class="token punctuation">(</span><span class="token string">'month'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        &lt;%
+        /* calculate postsOption data. */
+        var startDate = moment().subtract(1, 'years').startOf('month');
+        var endDate = moment().endOf('month');
     
-        <span class="token keyword">var</span> monthMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">var</span> dayTime <span class="token operator">=</span> <span class="token number">3600</span> <span class="token operator">*</span> <span class="token number">24</span> <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> time <span class="token operator">=</span> startDate<span class="token punctuation">;</span> time <span class="token operator">&lt;=</span> endDate<span class="token punctuation">;</span> time <span class="token operator">+=</span> dayTime<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">var</span> month <span class="token operator">=</span> <span class="token function">moment</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'YYYY-MM'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>monthMap<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>month<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                monthMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>month<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
+        var monthMap = new Map();
+        var dayTime = 3600 * 24 * 1000;
+        for (var time = startDate; time &lt;= endDate; time += dayTime) {
+            var month = moment(time).format('YYYY-MM');
+            if (!monthMap.has(month)) {
+                monthMap.set(month, 0);
+            }
+        }
     
-        <span class="token comment">// post and count map.</span>
-        site<span class="token punctuation">.</span>posts<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">post</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">var</span> month <span class="token operator">=</span> post<span class="token punctuation">.</span>date<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'YYYY-MM'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>monthMap<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>month<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                monthMap<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>month<span class="token punctuation">,</span> monthMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>month<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        // post and count map.
+        site.posts.forEach(function (post) {
+            var month = post.date.format('YYYY-MM');
+            if (monthMap.has(month)) {
+                monthMap.set(month, monthMap.get(month) + 1);
+            }
+        });
     
-        <span class="token comment">// xAxis data and yAxis data.</span>
-        <span class="token keyword">var</span> monthArr <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">...</span>monthMap<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">var</span> monthValueArr <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">...</span>monthMap<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        </span><span class="token delimiter punctuation">%&gt;</span></span>
+        // xAxis data and yAxis data.
+        var monthArr = JSON.stringify([...monthMap.keys()]);
+        var monthValueArr = JSON.stringify([...monthMap.values()]);
+        %&gt;
     
-        <span class="token keyword">let</span> postsOption <span class="token operator">=</span> <span class="token punctuation">{</span>
-            <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-                <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token string">'<span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">__</span><span class="token punctuation">(</span><span class="token string">"postPublishChart"</span><span class="token punctuation">)</span>  </span><span class="token delimiter punctuation">%&gt;</span></span>'</span><span class="token punctuation">,</span>
-                <span class="token literal-property property">top</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span>
-                <span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token string">'center'</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            <span class="token literal-property property">tooltip</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-                <span class="token literal-property property">trigger</span><span class="token operator">:</span> <span class="token string">'axis'</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            <span class="token literal-property property">xAxis</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-                <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'category'</span><span class="token punctuation">,</span>
-                <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> monthArr </span><span class="token delimiter punctuation">%&gt;</span></span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            <span class="token literal-property property">yAxis</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-                <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'value'</span><span class="token punctuation">,</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            <span class="token literal-property property">series</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-                <span class="token punctuation">{</span>
-                    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'<span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">__</span><span class="token punctuation">(</span><span class="token string">"postsNumberName"</span><span class="token punctuation">)</span>  </span><span class="token delimiter punctuation">%&gt;</span></span>'</span><span class="token punctuation">,</span>
-                    <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'line'</span><span class="token punctuation">,</span>
-                    <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'#6772e5'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                    <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> monthValueArr </span><span class="token delimiter punctuation">%&gt;</span></span><span class="token punctuation">,</span>
-                    <span class="token literal-property property">markPoint</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-                        <span class="token literal-property property">symbolSize</span><span class="token operator">:</span> <span class="token number">45</span><span class="token punctuation">,</span>
-                        <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'#fa755a'</span><span class="token punctuation">,</span><span class="token string">'#3ecf8e'</span><span class="token punctuation">,</span><span class="token string">'#82d3f4'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                        <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
-                            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'max'</span><span class="token punctuation">,</span>
-                            <span class="token literal-property property">itemStyle</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'#3ecf8e'</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-                            <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'<span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">__</span><span class="token punctuation">(</span><span class="token string">"maximum"</span><span class="token punctuation">)</span>  </span><span class="token delimiter punctuation">%&gt;</span></span>'</span>
-                        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-                            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'min'</span><span class="token punctuation">,</span>
-                            <span class="token literal-property property">itemStyle</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'#fa755a'</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-                            <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'<span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">__</span><span class="token punctuation">(</span><span class="token string">"minimum"</span><span class="token punctuation">)</span>  </span><span class="token delimiter punctuation">%&gt;</span></span>'</span>
-                        <span class="token punctuation">}</span><span class="token punctuation">]</span>
-                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-                    <span class="token literal-property property">markLine</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-                        <span class="token literal-property property">itemStyle</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'#ab47bc'</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-                        <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-                            <span class="token punctuation">{</span><span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'average'</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'<span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">__</span><span class="token punctuation">(</span><span class="token string">"average"</span><span class="token punctuation">)</span>  </span><span class="token delimiter punctuation">%&gt;</span></span>'</span><span class="token punctuation">}</span>
-                        <span class="token punctuation">]</span>
-                    <span class="token punctuation">}</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">]</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        let postsOption = {
+            title: {
+                text: '&lt;%- __("postPublishChart")  %&gt;',
+                top: -5,
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            xAxis: {
+                type: 'category',
+                data: &lt;%- monthArr %&gt;
+            },
+            yAxis: {
+                type: 'value',
+            },
+            series: [
+                {
+                    name: '&lt;%- __("postsNumberName")  %&gt;',
+                    type: 'line',
+                    color: ['#6772e5'],
+                    data: &lt;%- monthValueArr %&gt;,
+                    markPoint: {
+                        symbolSize: 45,
+                        color: ['#fa755a','#3ecf8e','#82d3f4'],
+                        data: [{
+                            type: 'max',
+                            itemStyle: {color: ['#3ecf8e']},
+                            name: '&lt;%- __("maximum")  %&gt;'
+                        }, {
+                            type: 'min',
+                            itemStyle: {color: ['#fa755a']},
+                            name: '&lt;%- __("minimum")  %&gt;'
+                        }]
+                    },
+                    markLine: {
+                        itemStyle: {color: ['#ab47bc']},
+                        data: [
+                            {type: 'average', name: '&lt;%- __("average")  %&gt;'}
+                        ]
+                    }
+                }
+            ]
+        };
     
-        <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript">
-        <span class="token comment">/* calculate categoriesOption data. */</span>
-        <span class="token keyword">var</span> categoryArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        site<span class="token punctuation">.</span>categories<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">category</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            categoryArr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string-property property">'name'</span><span class="token operator">:</span> category<span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token string-property property">'value'</span><span class="token operator">:</span> category<span class="token punctuation">.</span>length<span class="token punctuation">}</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        &lt;%
+        /* calculate categoriesOption data. */
+        var categoryArr = [];
+        site.categories.map(function(category) {
+            categoryArr.push({'name': category.name, 'value': category.length})
+        });
     
-        <span class="token keyword">var</span> categoryArrJson <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>categoryArr<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        </span><span class="token delimiter punctuation">%&gt;</span></span>
+        var categoryArrJson = JSON.stringify(categoryArr);
+        %&gt;
     
-        <span class="token keyword">let</span> categoriesOption <span class="token operator">=</span> <span class="token punctuation">{</span>
-            <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-                <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token string">'<span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">__</span><span class="token punctuation">(</span><span class="token string">"categoriesChart"</span><span class="token punctuation">)</span>  </span><span class="token delimiter punctuation">%&gt;</span></span>'</span><span class="token punctuation">,</span>
-                <span class="token literal-property property">top</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">,</span>
-                <span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token string">'center'</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            <span class="token literal-property property">tooltip</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-                <span class="token literal-property property">trigger</span><span class="token operator">:</span> <span class="token string">'item'</span><span class="token punctuation">,</span>
-                <span class="token literal-property property">formatter</span><span class="token operator">:</span> <span class="token string">"{a} &lt;br/&gt;{b} : {c} ({d}%)"</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            <span class="token literal-property property">series</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-                <span class="token punctuation">{</span>
-                    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'<span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">__</span><span class="token punctuation">(</span><span class="token string">"categories"</span><span class="token punctuation">)</span>  </span><span class="token delimiter punctuation">%&gt;</span></span>'</span><span class="token punctuation">,</span>
-                    <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'pie'</span><span class="token punctuation">,</span>
-                    <span class="token literal-property property">radius</span><span class="token operator">:</span> <span class="token string">'50%'</span><span class="token punctuation">,</span>
-                    <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'#6772e5'</span><span class="token punctuation">,</span> <span class="token string">'#ff9e0f'</span><span class="token punctuation">,</span> <span class="token string">'#fa755a'</span><span class="token punctuation">,</span> <span class="token string">'#3ecf8e'</span><span class="token punctuation">,</span> <span class="token string">'#82d3f4'</span><span class="token punctuation">,</span> <span class="token string">'#ab47bc'</span><span class="token punctuation">,</span> <span class="token string">'#525f7f'</span><span class="token punctuation">,</span> <span class="token string">'#f51c47'</span><span class="token punctuation">,</span> <span class="token string">'#26A69A'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                    <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> categoryArrJson </span><span class="token delimiter punctuation">%&gt;</span></span><span class="token punctuation">,</span>
-                    <span class="token literal-property property">itemStyle</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-                        <span class="token literal-property property">emphasis</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-                            <span class="token literal-property property">shadowBlur</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
-                            <span class="token literal-property property">shadowOffsetX</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-                            <span class="token literal-property property">shadowColor</span><span class="token operator">:</span> <span class="token string">'rgba(0, 0, 0, 0.5)'</span>
-                        <span class="token punctuation">}</span>
-                    <span class="token punctuation">}</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">]</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        let categoriesOption = {
+            title: {
+                text: '&lt;%- __("categoriesChart")  %&gt;',
+                top: -4,
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} &lt;br/&gt;{b} : {c} ({d}%)"
+            },
+            series: [
+                {
+                    name: '&lt;%- __("categories")  %&gt;',
+                    type: 'pie',
+                    radius: '50%',
+                    color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
+                    data: &lt;%- categoryArrJson %&gt;,
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
     
-        <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript">
-        <span class="token comment">/* calculate tagsOption data. */</span>
-        <span class="token comment">// get all tags name and count,then order by length desc.</span>
-        <span class="token keyword">var</span> tagArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        site<span class="token punctuation">.</span>tags<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">tag</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            tagArr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string-property property">'name'</span><span class="token operator">:</span> tag<span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token string-property property">'value'</span><span class="token operator">:</span> tag<span class="token punctuation">.</span>length<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        tagArr<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token keyword">return</span> b<span class="token punctuation">.</span>value <span class="token operator">-</span> a<span class="token punctuation">.</span>value<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        &lt;%
+        /* calculate tagsOption data. */
+        // get all tags name and count,then order by length desc.
+        var tagArr = [];
+        site.tags.map(function(tag) {
+            tagArr.push({'name': tag.name, 'value': tag.length});
+        });
+        tagArr.sort((a, b) =&gt; {return b.value - a.value});
     
-        <span class="token comment">// get Top 10 tags name and count.</span>
-        <span class="token keyword">var</span> tagNameArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">var</span> tagCountArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>tagArr<span class="token punctuation">.</span>length<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            tagNameArr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>tagArr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            tagCountArr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>tagArr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+        // get Top 10 tags name and count.
+        var tagNameArr = [];
+        var tagCountArr = [];
+        for (var i = 0, len = Math.min(tagArr.length, 10); i &lt; len; i++) {
+            tagNameArr.push(tagArr[i].name);
+            tagCountArr.push(tagArr[i].value);
+        }
     
-        <span class="token keyword">var</span> tagNameArrJson <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>tagNameArr<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">var</span> tagCountArrJson <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>tagCountArr<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        </span><span class="token delimiter punctuation">%&gt;</span></span>
+        var tagNameArrJson = JSON.stringify(tagNameArr);
+        var tagCountArrJson = JSON.stringify(tagCountArr);
+        %&gt;
     
-        <span class="token keyword">let</span> tagsOption <span class="token operator">=</span> <span class="token punctuation">{</span>
-            <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-                <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token string">'<span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">__</span><span class="token punctuation">(</span><span class="token string">"top10TagsChart"</span><span class="token punctuation">)</span>  </span><span class="token delimiter punctuation">%&gt;</span></span>'</span><span class="token punctuation">,</span>
-                <span class="token literal-property property">top</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span>
-                <span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token string">'center'</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            <span class="token literal-property property">tooltip</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-            <span class="token literal-property property">xAxis</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-                <span class="token punctuation">{</span>
-                    <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'category'</span><span class="token punctuation">,</span>
-                    <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> tagNameArrJson </span><span class="token delimiter punctuation">%&gt;</span></span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">]</span><span class="token punctuation">,</span>
-            <span class="token literal-property property">yAxis</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-                <span class="token punctuation">{</span>
-                    <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'value'</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">]</span><span class="token punctuation">,</span>
-            <span class="token literal-property property">series</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-                <span class="token punctuation">{</span>
-                    <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'bar'</span><span class="token punctuation">,</span>
-                    <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'#82d3f4'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                    <span class="token literal-property property">barWidth</span> <span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">,</span>
-                    <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> tagCountArrJson </span><span class="token delimiter punctuation">%&gt;</span></span><span class="token punctuation">,</span>
-                    <span class="token literal-property property">markPoint</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-                        <span class="token literal-property property">symbolSize</span><span class="token operator">:</span> <span class="token number">45</span><span class="token punctuation">,</span>
-                        <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
-                            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'max'</span><span class="token punctuation">,</span>
-                            <span class="token literal-property property">itemStyle</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'#3ecf8e'</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-                            <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'<span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">__</span><span class="token punctuation">(</span><span class="token string">"maximum"</span><span class="token punctuation">)</span>  </span><span class="token delimiter punctuation">%&gt;</span></span>'</span>
-                        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-                            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'min'</span><span class="token punctuation">,</span>
-                            <span class="token literal-property property">itemStyle</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'#fa755a'</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-                            <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'<span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">__</span><span class="token punctuation">(</span><span class="token string">"minimum"</span><span class="token punctuation">)</span>  </span><span class="token delimiter punctuation">%&gt;</span></span>'</span>
-                        <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-                    <span class="token literal-property property">markLine</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-                        <span class="token literal-property property">itemStyle</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'#ab47bc'</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-                        <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-                            <span class="token punctuation">{</span><span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'average'</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'<span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">__</span><span class="token punctuation">(</span><span class="token string">"average"</span><span class="token punctuation">)</span>  </span><span class="token delimiter punctuation">%&gt;</span></span>'</span><span class="token punctuation">}</span>
-                        <span class="token punctuation">]</span>
-                    <span class="token punctuation">}</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">]</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        let tagsOption = {
+            title: {
+                text: '&lt;%- __("top10TagsChart")  %&gt;',
+                top: -5,
+                x: 'center'
+            },
+            tooltip: {},
+            xAxis: [
+                {
+                    type: 'category',
+                    data: &lt;%- tagNameArrJson %&gt;
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+            series: [
+                {
+                    type: 'bar',
+                    color: ['#82d3f4'],
+                    barWidth : 18,
+                    data: &lt;%- tagCountArrJson %&gt;,
+                    markPoint: {
+                        symbolSize: 45,
+                        data: [{
+                            type: 'max',
+                            itemStyle: {color: ['#3ecf8e']},
+                            name: '&lt;%- __("maximum")  %&gt;'
+                        }, {
+                            type: 'min',
+                            itemStyle: {color: ['#fa755a']},
+                            name: '&lt;%- __("minimum")  %&gt;'
+                        }],
+                    },
+                    markLine: {
+                        itemStyle: {color: ['#ab47bc']},
+                        data: [
+                            {type: 'average', name: '&lt;%- __("average")  %&gt;'}
+                        ]
+                    }
+                }
+            ]
+        };
     
-        <span class="token comment">// render the charts</span>
-        postsChart<span class="token punctuation">.</span><span class="token function">setOption</span><span class="token punctuation">(</span>postsOption<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        categoriesChart<span class="token punctuation">.</span><span class="token function">setOption</span><span class="token punctuation">(</span>categoriesOption<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        tagsChart<span class="token punctuation">.</span><span class="token function">setOption</span><span class="token punctuation">(</span>tagsOption<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+        // render the charts
+        postsChart.setOption(postsOption);
+        categoriesChart.setOption(categoriesOption);
+        tagsChart.setOption(tagsOption);
+    &lt;/script&gt;
             
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>main</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;/main&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>在主题配置文件中添加：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 统计</span>
-<span class="token key atrule">stat</span><span class="token punctuation">:</span>
-  <span class="token key atrule">title</span><span class="token punctuation">:</span> 文章统计  <span class="token comment"># 标题</span>
-  <span class="token key atrule">text</span><span class="token punctuation">:</span> 身处不幸的时候，更应该竭尽全力。  <span class="token comment"># 一言</span>
-  <span class="token key atrule">icon</span><span class="token punctuation">:</span> far fa<span class="token punctuation">-</span>bar<span class="token punctuation">-</span>chart  <span class="token comment"># 图标</span>
-  <span class="token key atrule">show_post</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>  <span class="token comment"># 是否显示文章统计</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># 统计
+stat:
+  title: 文章统计  # 标题
+  text: 身处不幸的时候，更应该竭尽全力。  # 一言
+  icon: far fa-bar-chart  # 图标
+  show_post: true  # 是否显示文章统计<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>添加菜单导航，生成静态文件即可</p>

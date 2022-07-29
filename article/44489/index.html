@@ -159,7 +159,7 @@
     <ul class="sub-nav menus_item_child ">
       
       <li>
-        <a href="/about">
+        <a target="_blank" rel="noopener" href="http://blog.wzspace.cn">
           
           <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
           
@@ -364,7 +364,7 @@
           
           <i class="fa-solid fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
           
-          <span>我的笔记</span>
+          <span>在线笔记</span>
         </a>
       </li>
       
@@ -382,7 +382,7 @@
           
           <i class="fa-solid fa-code" style="margin-top: -20px; zoom: 0.6;"></i>
           
-          <span>我的API</span>
+          <span>API资源</span>
         </a>
       </li>
       
@@ -391,7 +391,7 @@
           
           <i class="fa-solid fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
           
-          <span>我的数据</span>
+          <span>数据资源</span>
         </a>
       </li>
       
@@ -502,7 +502,7 @@
               
                 <li>
 
-                  <a href="/about " style="margin-left:75px">
+                  <a target="_blank" rel="noopener" href="http://blog.wzspace.cn " style="margin-left:75px">
 				  
 				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
 			      
@@ -721,7 +721,7 @@
 				  
 				   <i class="fa fa-solid fa-book" style="position: absolute;left:50px" ></i>
 			      
-		          <span>我的笔记</span>
+		          <span>在线笔记</span>
                   </a>
                 </li>
               
@@ -741,7 +741,7 @@
 				  
 				   <i class="fa fa-solid fa-code" style="position: absolute;left:50px" ></i>
 			      
-		          <span>我的API</span>
+		          <span>API资源</span>
                   </a>
                 </li>
               
@@ -751,7 +751,7 @@
 				  
 				   <i class="fa fa-solid fa-database" style="position: absolute;left:50px" ></i>
 			      
-		          <span>我的数据</span>
+		          <span>数据资源</span>
                   </a>
                 </li>
               
@@ -945,7 +945,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    321
+                    320
                 </div>
                 
 
@@ -979,7 +979,7 @@
                 
                 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>未安装conda参考：</p>
 <ul>
-<li>CentOS7：<a href="http://wzspace.cn/article/31589/">http://wzspace.cn/article/31589/</a></li>
+<li>CentOS7：<a href="/article/31589/">Linux安装 Anaconda</a></li>
 <li>Windows：建议直接安装Anaconda</li>
 </ul>
 <p>命令解释：</p>
@@ -997,7 +997,7 @@
 <h3 id="列出所有环境"><a href="#列出所有环境" class="headerlink" title="列出所有环境"></a>列出所有环境</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda info --envs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>或者：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">env</span> list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda env list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="激活指定环境"><a href="#激活指定环境" class="headerlink" title="激活指定环境"></a>激活指定环境</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda activate env_name<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -1005,7 +1005,7 @@
 
 <h3 id="移除指定环境"><a href="#移除指定环境" class="headerlink" title="移除指定环境"></a>移除指定环境</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda remove --name env_name --all<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="创建指定版本的环境"><a href="#创建指定版本的环境" class="headerlink" title="创建指定版本的环境"></a>创建指定版本的环境</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda create --name env_name <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.7</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="创建指定版本的环境"><a href="#创建指定版本的环境" class="headerlink" title="创建指定版本的环境"></a>创建指定版本的环境</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda create --name env_name python=3.7<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="复制指定环境"><a href="#复制指定环境" class="headerlink" title="复制指定环境"></a>复制指定环境</h3><ul>
 <li>复制 <code>old_env_name</code>，创建新环境</li>
@@ -1019,15 +1019,15 @@
 
 <h3 id="列出指定环境的包"><a href="#列出指定环境的包" class="headerlink" title="列出指定环境的包"></a>列出指定环境的包</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda list -name env_name<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">install</span> numpy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda install numpy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="指定环境安装包"><a href="#指定环境安装包" class="headerlink" title="指定环境安装包"></a>指定环境安装包</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">install</span> --name env_name numpy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="指定环境安装包"><a href="#指定环境安装包" class="headerlink" title="指定环境安装包"></a>指定环境安装包</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda install --name env_name numpy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="搜索已安装的包"><a href="#搜索已安装的包" class="headerlink" title="搜索已安装的包"></a>搜索已安装的包</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda search numpy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="导出当前环境信息"><a href="#导出当前环境信息" class="headerlink" title="导出当前环境信息"></a>导出当前环境信息</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">env</span> <span class="token builtin class-name">export</span> <span class="token operator">&gt;</span> environment.yaml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="导出当前环境信息"><a href="#导出当前环境信息" class="headerlink" title="导出当前环境信息"></a>导出当前环境信息</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda env export &gt; environment.yaml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="导入环境信息"><a href="#导入环境信息" class="headerlink" title="导入环境信息"></a>导入环境信息</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">env</span> create -f environment.yaml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="导入环境信息"><a href="#导入环境信息" class="headerlink" title="导入环境信息"></a>导入环境信息</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda env create -f environment.yaml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="添加镜像源"><a href="#添加镜像源" class="headerlink" title="添加镜像源"></a>添加镜像源</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda config --add channels https://pypi.tuna.tsinghua.edu.cn/simple<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -1035,11 +1035,11 @@
 
 <h3 id="删除镜像源"><a href="#删除镜像源" class="headerlink" title="删除镜像源"></a>删除镜像源</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda config --remove channels https://pypi.tuna.tsinghua.edu.cn/simple<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="设置安装时显示源url"><a href="#设置安装时显示源url" class="headerlink" title="设置安装时显示源url"></a>设置安装时显示源url</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda config --set show_channel_urls <span class="token function">yes</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="设置安装时显示源url"><a href="#设置安装时显示源url" class="headerlink" title="设置安装时显示源url"></a>设置安装时显示源url</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda config --set show_channel_urls yes<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="查看源全部设置"><a href="#查看源全部设置" class="headerlink" title="查看源全部设置"></a>查看源全部设置</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda config --show<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="查看conda配置文件"><a href="#查看conda配置文件" class="headerlink" title="查看conda配置文件"></a>查看conda配置文件</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> ~/.condarc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="查看conda配置文件"><a href="#查看conda配置文件" class="headerlink" title="查看conda配置文件"></a>查看conda配置文件</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">cat ~/.condarc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
             </div>

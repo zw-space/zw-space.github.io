@@ -159,7 +159,7 @@
     <ul class="sub-nav menus_item_child ">
       
       <li>
-        <a href="/about">
+        <a target="_blank" rel="noopener" href="http://blog.wzspace.cn">
           
           <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
           
@@ -364,7 +364,7 @@
           
           <i class="fa-solid fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
           
-          <span>我的笔记</span>
+          <span>在线笔记</span>
         </a>
       </li>
       
@@ -382,7 +382,7 @@
           
           <i class="fa-solid fa-code" style="margin-top: -20px; zoom: 0.6;"></i>
           
-          <span>我的API</span>
+          <span>API资源</span>
         </a>
       </li>
       
@@ -391,7 +391,7 @@
           
           <i class="fa-solid fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
           
-          <span>我的数据</span>
+          <span>数据资源</span>
         </a>
       </li>
       
@@ -502,7 +502,7 @@
               
                 <li>
 
-                  <a href="/about " style="margin-left:75px">
+                  <a target="_blank" rel="noopener" href="http://blog.wzspace.cn " style="margin-left:75px">
 				  
 				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
 			      
@@ -721,7 +721,7 @@
 				  
 				   <i class="fa fa-solid fa-book" style="position: absolute;left:50px" ></i>
 			      
-		          <span>我的笔记</span>
+		          <span>在线笔记</span>
                   </a>
                 </li>
               
@@ -741,7 +741,7 @@
 				  
 				   <i class="fa fa-solid fa-code" style="position: absolute;left:50px" ></i>
 			      
-		          <span>我的API</span>
+		          <span>API资源</span>
                   </a>
                 </li>
               
@@ -751,7 +751,7 @@
 				  
 				   <i class="fa fa-solid fa-database" style="position: absolute;left:50px" ></i>
 			      
-		          <span>我的数据</span>
+		          <span>数据资源</span>
                   </a>
                 </li>
               
@@ -986,7 +986,7 @@
                 
                 
                 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
-<li>本文使用宝塔面板辅助部署，安装参考 <a href="http://wzspace.cn/article/52020/">宝塔面板安装和基本配置</a></li>
+<li>本文使用宝塔面板辅助部署，安装参考 <a href="/article/52020/">宝塔面板安装和基本配置</a></li>
 <li>所有关于安装hexo的插件的命令均在网站根目录下执行</li>
 <li>每次更改配置过后都需要重新生成静态文件才能看到更改后的效果</li>
 <li>因为hexo是静态文件，在重新生成静态文件后需要删除浏览器缓存在重新刷新才能看到更改的页面</li>
@@ -996,24 +996,24 @@
 <h3 id="安装nodejs-1"><a href="#安装nodejs-1" class="headerlink" title="安装nodejs"></a>安装nodejs</h3><p>点击 添加Node项目，安装nodejs，我选择的是 v14.17.6 稳定版</p>
 <p><img src="http://data.wzspace.cn/image/blog/52021/nodejsbb.png" alt="nodejs版本"></p>
 <p>安装完成后，nodejs在目录 <em>/www/server/nodejs/{version}/</em> ，编辑文件 <em>/etc/profile</em></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">vim /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>在最后一行添加，版本号换成自己的</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span>:/www/server/nodejs/v14.17.6/bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">export PATH=$PATH:/www/server/nodejs/v14.17.6/bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>如何使配置文件生效</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">source /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="部署hexo"><a href="#部署hexo" class="headerlink" title="部署hexo"></a>部署hexo</h2><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>打开宝塔 -&gt; 文件，在 <em>/www/wwwroot/</em> 目录下新建站点目录，注意 <em>wzspace.cn</em> 是你的域名</p>
 <p><img src="http://data.wzspace.cn/image/blog/52021/xjml.png" alt="新建目录"></p>
 <p>进入该目录</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /www/wwwroot/wzspace.cn/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">cd /www/wwwroot/wzspace.cn/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>创建完成后，使用npm安装</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install hexo -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>设置hexo环境变量，版本号换成自己的</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ln</span> -s /www/server/nodejs/v14.17.6/lib/node_modules/hexo/bin/hexo /usr/bin/hexo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ln -s /www/server/nodejs/v14.17.6/lib/node_modules/hexo/bin/hexo /usr/bin/hexo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>进行初始化</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1031,26 +1031,26 @@
 <p><img src="http://data.wzspace.cn/image/blog/52021/fwxg.png" alt="访问效果"></p>
 <h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>本次使用的主题来源：<a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery/">https://github.com/blinkfox/hexo-theme-matery/</a></p>
 <h3 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h3><p>进入网站目录下的 <em>themes/</em> 目录，下载主题：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> themes
-<span class="token function">git</span> clone https://github.com/blinkfox/hexo-theme-matery.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">cd themes
+git clone https://github.com/blinkfox/hexo-theme-matery.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>更改网站目录下的 _config.yml 文件中的theme的值为：hexo-theme-matery</p>
 <p>主题配置详情：<a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md</a></p>
 <p>Hexo配置详情：<br><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration">https://hexo.io/zh-cn/docs/configuration</a></p>
 <h2 id="个人使用记录"><a href="#个人使用记录" class="headerlink" title="个人使用记录"></a>个人使用记录</h2><h3 id="数字链接"><a href="#数字链接" class="headerlink" title="数字链接"></a>数字链接</h3><p>Hexo默认使用的文章永久链接格式是：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">year/<span class="token punctuation">:</span>month/<span class="token punctuation">:</span>day/<span class="token punctuation">:</span>title/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">year/:month/:day/:title/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>这种链接格式不仅容易出现错误，而且可读性很差，abbrlink插件可以很好的解决这个问题，插件项目地址：<a target="_blank" rel="noopener" href="https://github.com/rozbo/hexo-abbrlink">https://github.com/rozbo/hexo-abbrlink</a></p>
 <p>安装abbrlink插件</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-abbrlink --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install hexo-abbrlink --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>在网站根目录下更改站点配置文件_config.yml</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">permalink</span><span class="token punctuation">:</span> p/<span class="token punctuation">:</span>abbrlink/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">permalink: p/:abbrlink/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>在网站根目录下添加站点配置文件_config.yml</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">abbrlink</span><span class="token punctuation">:</span>
-  <span class="token key atrule">alg</span><span class="token punctuation">:</span> crc16 <span class="token comment">#support crc16(default) and crc32</span>
-  <span class="token key atrule">rep</span><span class="token punctuation">:</span> dec   <span class="token comment">#support dec(default) and hex</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">abbrlink:
+  alg: crc16 #support crc16(default) and crc32
+  rep: dec   #support dec(default) and hex<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>重新删除缓存，生成静态文件</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean
@@ -1143,22 +1143,22 @@ hexo g -d<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="修改模板"><a href="#修改模板" class="headerlink" title="修改模板"></a>修改模板</h3><p>网站根目录下的 <em>scaffolds/</em> 目录内保存着模板，其中post.md是文章模板，因为在新建文章时一般要配置一些初始设置，可以加在模板中，修改如下：</p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
-<span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> title <span class="token punctuation">}</span><span class="token punctuation">}</span>
-<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> date <span class="token punctuation">}</span><span class="token punctuation">}</span>
-<span class="token key atrule">img</span><span class="token punctuation">:</span> 
-<span class="token key atrule">top</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-<span class="token key atrule">hide</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-<span class="token key atrule">cover</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-<span class="token key atrule">coverImg</span><span class="token punctuation">:</span> 
-<span class="token key atrule">password</span><span class="token punctuation">:</span> 
-<span class="token key atrule">toc</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-<span class="token key atrule">mathjax</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-<span class="token key atrule">summary</span><span class="token punctuation">:</span> 
-<span class="token key atrule">categories</span><span class="token punctuation">:</span> 
-<span class="token key atrule">tags</span><span class="token punctuation">:</span>
-keywords<span class="token punctuation">:</span></span> 
-<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">---
+title: {{ title }}
+date: {{ date }}
+img: 
+top: false
+hide: false
+cover: false
+coverImg: 
+password: 
+toc: true
+mathjax: false
+summary: 
+categories: 
+tags:
+keywords: 
+---<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>变量详情：<a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md#%E6%96%87%E7%AB%A0-front-matter-%E4%BB%8B%E7%BB%8D">https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md#%E6%96%87%E7%AB%A0-front-matter-%E4%BB%8B%E7%BB%8D</a></p>
 <h3 id="添加评论"><a href="#添加评论" class="headerlink" title="添加评论"></a>添加评论</h3><p>前往 <a target="_blank" rel="noopener" href="https://leancloud.app/">LeanCloud官网</a> 注册账号，创建应用：</p>
@@ -1166,33 +1166,33 @@ keywords<span class="token punctuation">:</span></span>
 <p>打开应用设置 -&gt; 应用凭证：</p>
 <p><img src="http://data.wzspace.cn/image/blog/52021/yypz.png" alt="应用凭证"></p>
 <p>复制AppID，AppKey和REST API 服务器地址，配置主题目录下的配置文件：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># The configuration of the Valine comment module is not activated by default.</span>
-<span class="token comment"># To use it, activate the configuration item and set appId and appKey.</span>
-<span class="token comment"># Valine 评论模块的配置，默认为不激活，如要使用，就请激活该配置项，并设置 appId 和 appKey.</span>
-<span class="token key atrule">valine</span><span class="token punctuation">:</span>
-  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token key atrule">appId</span><span class="token punctuation">:</span> 6uAzMWIBFLe06rxy8cUFfpQs<span class="token punctuation">-</span>MdYXbMMI  <span class="token comment"># 必填</span>
-  <span class="token key atrule">appKey</span><span class="token punctuation">:</span> 2rmetdma3FQoLdhgymHWI5FX  <span class="token comment"># 必填</span>
-  <span class="token key atrule">serverURLs</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//6uazmwib.api.lncldglobal.com  <span class="token comment"># 必填 https://你的api</span>
-  <span class="token key atrule">notify</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-  <span class="token key atrule">verify</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-  <span class="token key atrule">visitor</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>  <span class="token comment"># 文章阅读统计</span>
-  <span class="token key atrule">lang</span><span class="token punctuation">:</span> zh<span class="token punctuation">-</span>CN
-  <span class="token key atrule">highlight</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>  <span class="token comment"># 代码高亮</span>
-  <span class="token key atrule">avatarForce</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>  <span class="token comment"># 每次访问强制拉取最新的评论列表头像</span>
-  <span class="token key atrule">recordIP</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>  <span class="token comment"># 是否记录评论者IP</span>
-  <span class="token key atrule">enableQQ</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>  <span class="token comment"># 是否启用昵称框自动获取QQ昵称和QQ头像</span>
-  <span class="token key atrule">requiredFields</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'nick'</span><span class="token punctuation">,</span> <span class="token string">'mail'</span><span class="token punctuation">]</span>  <span class="token comment"># 设置必填项</span>
-  <span class="token key atrule">mathJax</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>  <span class="token comment"># 数学公式功能</span>
-  <span class="token key atrule">meta</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'nick'</span><span class="token punctuation">,</span><span class="token string">'mail'</span><span class="token punctuation">,</span><span class="token string">'link'</span><span class="token punctuation">]</span>
-  <span class="token key atrule">js</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js
-  <span class="token key atrule">avatar</span><span class="token punctuation">:</span> <span class="token string">'wavatar'</span> <span class="token comment"># Gravatar style : mm/identicon/monsterid/wavatar/retro/hide</span>
-  <span class="token key atrule">pageSize</span><span class="token punctuation">:</span> <span class="token number">10</span>
-  <span class="token key atrule">placeholder</span><span class="token punctuation">:</span> <span class="token string">'在这里写下你想说的话哦~'</span> <span class="token comment"># Comment Box placeholder</span>
-  <span class="token key atrule">background</span><span class="token punctuation">:</span> /medias/comment_bg.png
-  <span class="token key atrule">coolpushkey</span><span class="token punctuation">:</span> 
-  <span class="token key atrule">emojiCDN</span><span class="token punctuation">:</span>   <span class="token comment"># 设置表情包CDN, https://valine.js.org/emoji.html</span>
-  <span class="token key atrule">emojiMaps</span><span class="token punctuation">:</span> <span class="token null important">null</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># The configuration of the Valine comment module is not activated by default.
+# To use it, activate the configuration item and set appId and appKey.
+# Valine 评论模块的配置，默认为不激活，如要使用，就请激活该配置项，并设置 appId 和 appKey.
+valine:
+  enable: true
+  appId: 6uAzMWIBFLe06rxy8cUFfpQs-MdYXbMMI  # 必填
+  appKey: 2rmetdma3FQoLdhgymHWI5FX  # 必填
+  serverURLs: https://6uazmwib.api.lncldglobal.com  # 必填 https://你的api
+  notify: false
+  verify: false
+  visitor: false  # 文章阅读统计
+  lang: zh-CN
+  highlight: true  # 代码高亮
+  avatarForce: false  # 每次访问强制拉取最新的评论列表头像
+  recordIP: false  # 是否记录评论者IP
+  enableQQ: false  # 是否启用昵称框自动获取QQ昵称和QQ头像
+  requiredFields: ['nick', 'mail']  # 设置必填项
+  mathJax: false  # 数学公式功能
+  meta: ['nick','mail','link']
+  js: https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js
+  avatar: 'wavatar' # Gravatar style : mm/identicon/monsterid/wavatar/retro/hide
+  pageSize: 10
+  placeholder: '在这里写下你想说的话哦~' # Comment Box placeholder
+  background: /medias/comment_bg.png
+  coolpushkey: 
+  emojiCDN:   # 设置表情包CDN, https://valine.js.org/emoji.html
+  emojiMaps: null<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="评论添加邮箱提醒"><a href="#评论添加邮箱提醒" class="headerlink" title="评论添加邮箱提醒"></a>评论添加邮箱提醒</h3><p>来源：<a target="_blank" rel="noopener" href="https://github.com/DesertsP/Valine-Admin">https://github.com/DesertsP/Valine-Admin</a></p>
 <p>先看结果：</p>
