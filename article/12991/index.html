@@ -760,75 +760,12 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://zw-space.github.io/" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://zw-space.github.io/" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -1050,174 +987,174 @@ retry
 signal
 multitasking<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="完整源码"><a href="#完整源码" class="headerlink" title="完整源码"></a>完整源码</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># import time</span>
-<span class="token keyword">import</span> json
-<span class="token keyword">from</span> tqdm <span class="token keyword">import</span> tqdm
-<span class="token keyword">from</span> typing <span class="token keyword">import</span> List<span class="token punctuation">,</span> Tuple
-<span class="token keyword">import</span> os
-<span class="token keyword">import</span> requests
-<span class="token keyword">from</span> retry <span class="token keyword">import</span> retry
-<span class="token keyword">import</span> signal
-<span class="token keyword">import</span> multitasking
+<h2 id="完整源码"><a href="#完整源码" class="headerlink" title="完整源码"></a>完整源码</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"># import time
+import json
+from tqdm import tqdm
+from typing import List, Tuple
+import os
+import requests
+from retry import retry
+import signal
+import multitasking
 
-signal<span class="token punctuation">.</span>signal<span class="token punctuation">(</span>signal<span class="token punctuation">.</span>SIGINT<span class="token punctuation">,</span> multitasking<span class="token punctuation">.</span>killall<span class="token punctuation">)</span>
+signal.signal(signal.SIGINT, multitasking.killall)
 
 
-<span class="token keyword">class</span> <span class="token class-name">Download</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">"""
+class Download:
+    def __init__(self):
+        """
         多线程下载文件
-        """</span>
-        self<span class="token punctuation">.</span>__file_size <span class="token operator">=</span> <span class="token boolean">None</span>     <span class="token comment"># 文件大小/单位b</span>
-        self<span class="token punctuation">.</span>__file_url <span class="token operator">=</span> <span class="token boolean">None</span>  <span class="token comment"># 文件路径</span>
-        self<span class="token punctuation">.</span>__MB <span class="token operator">=</span> <span class="token builtin">pow</span><span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>  <span class="token comment"># 1MB == 1024^2B</span>
-        self<span class="token punctuation">.</span>savePath <span class="token operator">=</span> <span class="token string">"D:\\AppData\\Download"</span>  <span class="token comment"># 保存路径</span>
-        self<span class="token punctuation">.</span>__headers <span class="token operator">=</span> <span class="token punctuation">{</span>
-            <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '</span>
-                          <span class="token string">'Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'</span>
-        <span class="token punctuation">}</span>
-        self<span class="token punctuation">.</span>__split_max <span class="token operator">=</span> <span class="token number">20</span>  <span class="token comment"># 分块数</span>
-        self<span class="token punctuation">.</span>__file_min_mb <span class="token operator">=</span> <span class="token number">10</span>  <span class="token comment"># 每块最小内存</span>
-        self<span class="token punctuation">.</span>__retry_tries <span class="token operator">=</span> <span class="token number">3</span>  <span class="token comment"># 每次连接失败重试次数</span>
+        """
+        self.__file_size = None     # 文件大小/单位b
+        self.__file_url = None  # 文件路径
+        self.__MB = pow(1024, 2)  # 1MB == 1024^2B
+        self.savePath = "D:\\AppData\\Download"  # 保存路径
+        self.__headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                          'Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'
+        }
+        self.__split_max = 20  # 分块数
+        self.__file_min_mb = 10  # 每块最小内存
+        self.__retry_tries = 3  # 每次连接失败重试次数
 
-    <span class="token decorator annotation punctuation">@property</span>
-    <span class="token keyword">def</span> <span class="token function">split_max</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">"""
+    @property
+    def split_max(self):
+        """
         最大线程数
         :return:
-        """</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>__split_max
+        """
+        return self.__split_max
 
-    <span class="token decorator annotation punctuation">@split_max<span class="token punctuation">.</span>setter</span>
-    <span class="token keyword">def</span> <span class="token function">split_max</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">"""
+    @split_max.setter
+    def split_max(self, value):
+        """
         设置最大线程数
         :param value:
         :return:
-        """</span>
-        <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token keyword">or</span> value<span class="token punctuation">.</span>isdigit<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            self<span class="token punctuation">.</span>__split_max <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string">"split_max value not is int"</span><span class="token punctuation">)</span>
+        """
+        if isinstance(value, int) or value.isdigit():
+            self.__split_max = int(value)
+        else:
+            raise ValueError("split_max value not is int")
 
-    <span class="token keyword">def</span> <span class="token function">download</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> file_url<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> file_name<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">"""
+    def download(self, file_url: str, file_name: str):
+        """
         下载文件
         :param file_url: 文件链接
         :param file_name: 文件保存名
         :return:
-        """</span>
-        <span class="token comment"># 如果保存目录不存在，创建</span>
-        <span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>self<span class="token punctuation">.</span>savePath<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span>self<span class="token punctuation">.</span>savePath<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>__file_url <span class="token operator">=</span> file_url
-        <span class="token comment"># 获取文件大小/单位b</span>
-        self<span class="token punctuation">.</span>__file_size <span class="token operator">=</span> self<span class="token punctuation">.</span>__get_file_size<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>__download<span class="token punctuation">(</span>file_name<span class="token operator">=</span>file_name<span class="token punctuation">)</span>
+        """
+        # 如果保存目录不存在，创建
+        if not os.path.exists(self.savePath):
+            os.makedirs(self.savePath)
+        self.__file_url = file_url
+        # 获取文件大小/单位b
+        self.__file_size = self.__get_file_size()
+        self.__download(file_name=file_name)
 
-    <span class="token keyword">def</span> <span class="token function">__download</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> file_name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token decorator annotation punctuation">@retry</span><span class="token punctuation">(</span>tries<span class="token operator">=</span>self<span class="token punctuation">.</span>__retry_tries<span class="token punctuation">)</span>
-        <span class="token decorator annotation punctuation">@multitasking<span class="token punctuation">.</span>task</span>
-        <span class="token keyword">def</span> <span class="token function">split_download</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> ending<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token triple-quoted-string string">"""
+    def __download(self, file_name):
+        @retry(tries=self.__retry_tries)
+        @multitasking.task
+        def split_download(start, ending):
+            """
             分块下载
             :param start: 开头
             :param ending: 结尾
             :return:
-            """</span>
-            <span class="token comment"># 拷贝，避开线程之间的影响</span>
-            part_headers <span class="token operator">=</span> self<span class="token punctuation">.</span>__headers<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token comment"># 分段下载的核心/设置下载的文件部分</span>
-            part_headers<span class="token punctuation">[</span><span class="token string">'Range'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'bytes={start}-{ending}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>start<span class="token operator">=</span>start<span class="token punctuation">,</span> ending<span class="token operator">=</span>ending<span class="token punctuation">)</span>
-            <span class="token comment"># 发起请求并获取响应（流式）</span>
-            response <span class="token operator">=</span> session<span class="token punctuation">.</span>get<span class="token punctuation">(</span>self<span class="token punctuation">.</span>__file_url<span class="token punctuation">,</span> headers<span class="token operator">=</span>part_headers<span class="token punctuation">,</span> stream<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
-            <span class="token comment"># 每次读取的流式响应大小/128b</span>
-            data_size <span class="token operator">=</span> <span class="token number">128</span>
-            <span class="token comment"># 暂存已获取的数据</span>
-            datas <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-            <span class="token keyword">for</span> data <span class="token keyword">in</span> response<span class="token punctuation">.</span>iter_content<span class="token punctuation">(</span>chunk_size<span class="token operator">=</span>data_size<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token comment"># 暂存获取的响应</span>
-                datas<span class="token punctuation">.</span>append<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
-                <span class="token comment"># 更新进度条</span>
-                download_tqdm<span class="token punctuation">.</span>update<span class="token punctuation">(</span>data_size<span class="token punctuation">)</span>
-            <span class="token builtin">file</span><span class="token punctuation">.</span>seek<span class="token punctuation">(</span>start<span class="token punctuation">)</span>
-            <span class="token keyword">for</span> data <span class="token keyword">in</span> datas<span class="token punctuation">:</span>
-                <span class="token builtin">file</span><span class="token punctuation">.</span>write<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
-            <span class="token comment"># 释放已写入的资源</span>
-            <span class="token keyword">del</span> datas
+            """
+            # 拷贝，避开线程之间的影响
+            part_headers = self.__headers.copy()
+            # 分段下载的核心/设置下载的文件部分
+            part_headers['Range'] = 'bytes={start}-{ending}'.format(start=start, ending=ending)
+            # 发起请求并获取响应（流式）
+            response = session.get(self.__file_url, headers=part_headers, stream=True)
+            # 每次读取的流式响应大小/128b
+            data_size = 128
+            # 暂存已获取的数据
+            datas = []
+            for data in response.iter_content(chunk_size=data_size):
+                # 暂存获取的响应
+                datas.append(data)
+                # 更新进度条
+                download_tqdm.update(data_size)
+            file.seek(start)
+            for data in datas:
+                file.write(data)
+            # 释放已写入的资源
+            del datas
 
-        <span class="token comment"># session保持浏览器状态</span>
-        session <span class="token operator">=</span> requests<span class="token punctuation">.</span>Session<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token comment"># 打开文件</span>
-        <span class="token builtin">file</span> <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>self<span class="token punctuation">.</span>savePath<span class="token punctuation">,</span> file_name<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"wb"</span><span class="token punctuation">)</span>
-        <span class="token comment"># 创建进度条</span>
-        download_tqdm <span class="token operator">=</span> tqdm<span class="token punctuation">(</span>total<span class="token operator">=</span>self<span class="token punctuation">.</span>__file_size<span class="token punctuation">,</span> desc<span class="token operator">=</span><span class="token string-interpolation"><span class="token string">f'下载文件[</span><span class="token interpolation"><span class="token punctuation">{</span>file_name<span class="token punctuation">}</span></span><span class="token string">]'</span></span><span class="token punctuation">)</span>
-        <span class="token comment"># 开始分线下载</span>
-        <span class="token keyword">for</span> part <span class="token keyword">in</span> self<span class="token punctuation">.</span>__split_list<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            split_download<span class="token punctuation">(</span>part<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> part<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token comment"># 等待全部线程结束</span>
-        multitasking<span class="token punctuation">.</span>wait_for_tasks<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token builtin">file</span><span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        download_tqdm<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        # session保持浏览器状态
+        session = requests.Session()
+        # 打开文件
+        file = open(os.path.join(self.savePath, file_name), "wb")
+        # 创建进度条
+        download_tqdm = tqdm(total=self.__file_size, desc=f'下载文件[{file_name}]')
+        # 开始分线下载
+        for part in self.__split_list():
+            split_download(part[0], part[1])
+        # 等待全部线程结束
+        multitasking.wait_for_tasks()
+        file.close()
+        download_tqdm.close()
 
-    <span class="token keyword">def</span> <span class="token function">__split_list</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> List<span class="token punctuation">[</span>Tuple<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">"""
+    def __split_list(self) -&gt; List[Tuple[int, int]]:
+        """
         获取分块列表
         :return:
-        """</span>
-        <span class="token comment"># 获取文件大小/单位mb</span>
-        file_size <span class="token operator">=</span> self<span class="token punctuation">.</span>__file_size <span class="token operator">/</span> self<span class="token punctuation">.</span>__MB
-        <span class="token comment"># 判断文件大小是否小于最小分块内存</span>
-        <span class="token keyword">if</span> file_size <span class="token operator">&lt;</span> self<span class="token punctuation">.</span>__file_min_mb<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>__file_size<span class="token punctuation">)</span><span class="token punctuation">]</span>
-        <span class="token comment"># 获取实际线程数</span>
-        split_sum <span class="token operator">=</span> <span class="token builtin">round</span><span class="token punctuation">(</span>file_size <span class="token operator">/</span> self<span class="token punctuation">.</span>__file_min_mb<span class="token punctuation">)</span>
-        split_sum <span class="token operator">=</span> self<span class="token punctuation">.</span>__split_max <span class="token keyword">if</span> split_sum <span class="token operator">&gt;</span> self<span class="token punctuation">.</span>__split_max <span class="token keyword">else</span> split_sum
-        <span class="token comment"># 获取每块下载的内存大小</span>
-        split_size <span class="token operator">=</span> self<span class="token punctuation">.</span>__file_size <span class="token operator">//</span> split_sum
+        """
+        # 获取文件大小/单位mb
+        file_size = self.__file_size / self.__MB
+        # 判断文件大小是否小于最小分块内存
+        if file_size &lt; self.__file_min_mb:
+            return [(0, self.__file_size)]
+        # 获取实际线程数
+        split_sum = round(file_size / self.__file_min_mb)
+        split_sum = self.__split_max if split_sum &gt; self.__split_max else split_sum
+        # 获取每块下载的内存大小
+        split_size = self.__file_size // split_sum
 
-        <span class="token comment"># print("file_size:", self.__file_size)</span>
-        <span class="token comment"># print("file_MB:", file_size)</span>
-        <span class="token comment"># print("split_sum:", split_sum)</span>
-        <span class="token comment"># print("split_size:", split_size)</span>
-        <span class="token comment"># print("split_size_mb:", split_size / self.__MB)</span>
+        # print("file_size:", self.__file_size)
+        # print("file_MB:", file_size)
+        # print("split_sum:", split_sum)
+        # print("split_size:", split_size)
+        # print("split_size_mb:", split_size / self.__MB)
 
-        <span class="token comment"># 分块列表</span>
-        split_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token comment"># 获取分块列表</span>
-        <span class="token keyword">for</span> start <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>__file_size<span class="token punctuation">,</span> split_size<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> start <span class="token operator">+</span> <span class="token number">2</span> <span class="token operator">*</span> split_size <span class="token operator">&gt;</span> self<span class="token punctuation">.</span>__file_size<span class="token punctuation">:</span>
-                ending <span class="token operator">=</span> self<span class="token punctuation">.</span>__file_size
-                split_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> ending<span class="token punctuation">)</span><span class="token punctuation">)</span>
-                <span class="token keyword">break</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                ending <span class="token operator">=</span> start <span class="token operator">+</span> split_size
-                split_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> ending<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> split_list
+        # 分块列表
+        split_list = []
+        # 获取分块列表
+        for start in range(0, self.__file_size, split_size):
+            if start + 2 * split_size &gt; self.__file_size:
+                ending = self.__file_size
+                split_list.append((start, ending))
+                break
+            else:
+                ending = start + split_size
+                split_list.append((start, ending))
+        return split_list
 
-    <span class="token keyword">def</span> <span class="token function">__get_file_size</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">"""
+    def __get_file_size(self):
+        """
         获取文件大小/单位b
         :return:
-        """</span>
-        response <span class="token operator">=</span> requests<span class="token punctuation">.</span>head<span class="token punctuation">(</span>self<span class="token punctuation">.</span>__file_url<span class="token punctuation">)</span>
-        file_size <span class="token operator">=</span> response<span class="token punctuation">.</span>headers<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'Content-Length'</span><span class="token punctuation">)</span>
-        <span class="token comment"># print(json.dumps(dict(response.headers), indent=4, ensure_ascii=False))</span>
-        <span class="token keyword">if</span> file_size <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
-            <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string">'该文件不支持多线程分段下载！'</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token builtin">eval</span><span class="token punctuation">(</span>file_size<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        """
+        response = requests.head(self.__file_url)
+        file_size = response.headers.get('Content-Length')
+        # print(json.dumps(dict(response.headers), indent=4, ensure_ascii=False))
+        if file_size is None:
+            raise ValueError('该文件不支持多线程分段下载！')
+        return eval(file_size)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    <span class="token comment"># Anaconda3</span>
-    <span class="token comment"># 文件下载路径</span>
-    url <span class="token operator">=</span> <span class="token string">"https://repo.anaconda.com/archive/Anaconda3-2021.11-Windows-x86_64.exe"</span>
-    <span class="token comment"># 文件保存名字</span>
-    file_name <span class="token operator">=</span> <span class="token string">"Anaconda3-2021.11-Windows-x86_64.exe"</span>
-    <span class="token comment"># 实例化</span>
-    d <span class="token operator">=</span> Download<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token comment"># 设置最大线程数</span>
-    <span class="token comment"># d.split_max = 36</span>
-    d<span class="token punctuation">.</span>download<span class="token punctuation">(</span>file_url<span class="token operator">=</span>url<span class="token punctuation">,</span> file_name<span class="token operator">=</span>file_name<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">if __name__ == '__main__':
+    # Anaconda3
+    # 文件下载路径
+    url = "https://repo.anaconda.com/archive/Anaconda3-2021.11-Windows-x86_64.exe"
+    # 文件保存名字
+    file_name = "Anaconda3-2021.11-Windows-x86_64.exe"
+    # 实例化
+    d = Download()
+    # 设置最大线程数
+    # d.split_max = 36
+    d.download(file_url=url, file_name=file_name)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>1、使用时更改文件下载路径和文件保存的名字</p>
 <p>2、文件下载后默认保存在”D:\AppData\Download”下（可以自行更改）</p>

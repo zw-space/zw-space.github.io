@@ -760,75 +760,12 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://zw-space.github.io/" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://zw-space.github.io/" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -1045,7 +982,7 @@
                 
                 
                 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>没有firewalld请先安装，安装命令：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> firewalld<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum install firewalld<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="firewalld基本使用"><a href="#firewalld基本使用" class="headerlink" title="firewalld基本使用"></a>firewalld基本使用</h2><h3 id="检查防火墙状态"><a href="#检查防火墙状态" class="headerlink" title="检查防火墙状态"></a>检查防火墙状态</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl status firewalld<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -1053,7 +990,7 @@
 
 <h3 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl stop firewalld<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="设置开机启用防火墙"><a href="#设置开机启用防火墙" class="headerlink" title="设置开机启用防火墙"></a>设置开机启用防火墙</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl <span class="token builtin class-name">enable</span> firewalld.service<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="设置开机启用防火墙"><a href="#设置开机启用防火墙" class="headerlink" title="设置开机启用防火墙"></a>设置开机启用防火墙</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl enable firewalld.service<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="设置开机禁用防火墙"><a href="#设置开机禁用防火墙" class="headerlink" title="设置开机禁用防火墙"></a>设置开机禁用防火墙</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl disable firewalld.service<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -1063,7 +1000,7 @@
 
 <h3 id="检查状态"><a href="#检查状态" class="headerlink" title="检查状态"></a>检查状态</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --state<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="查看所有打开的端口"><a href="#查看所有打开的端口" class="headerlink" title="查看所有打开的端口"></a>查看所有打开的端口</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone<span class="token operator">=</span>public --list-ports<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="查看所有打开的端口"><a href="#查看所有打开的端口" class="headerlink" title="查看所有打开的端口"></a>查看所有打开的端口</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone=public --list-ports<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="更新防火墙规则"><a href="#更新防火墙规则" class="headerlink" title="更新防火墙规则"></a>更新防火墙规则</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -1072,11 +1009,11 @@
 <h3 id="开启防火墙端口"><a href="#开启防火墙端口" class="headerlink" title="开启防火墙端口"></a>开启防火墙端口</h3><ul>
 <li>注意：开启或关闭防火墙端口后，更新才能生效</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">8080</span>/tcp --permanent<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone=public --add-port=8080/tcp --permanent<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="关闭防火墙端口"><a href="#关闭防火墙端口" class="headerlink" title="关闭防火墙端口"></a>关闭防火墙端口</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone<span class="token operator">=</span>public --remove-port<span class="token operator">=</span><span class="token number">8080</span>/tcp --permanent<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="关闭防火墙端口"><a href="#关闭防火墙端口" class="headerlink" title="关闭防火墙端口"></a>关闭防火墙端口</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone=public --remove-port=8080/tcp --permanent<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="查看端口状态"><a href="#查看端口状态" class="headerlink" title="查看端口状态"></a>查看端口状态</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone<span class="token operator">=</span>public --query-port<span class="token operator">=</span><span class="token number">8080</span>/tcp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="查看端口状态"><a href="#查看端口状态" class="headerlink" title="查看端口状态"></a>查看端口状态</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone=public --query-port=8080/tcp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="拒绝所有包"><a href="#拒绝所有包" class="headerlink" title="拒绝所有包"></a>拒绝所有包</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --panic-on<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="取消拒绝状态"><a href="#取消拒绝状态" class="headerlink" title="取消拒绝状态"></a>取消拒绝状态</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --panic-off<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1099,20 +1036,20 @@
 <li>–add-port=8080/tcp 添加端口，格式为：端口/通讯协议</li>
 <li>–permanent 永久生效，没有此参数重启后失效</li>
 </ul>
-<h2 id="配置IP地址伪装"><a href="#配置IP地址伪装" class="headerlink" title="配置IP地址伪装"></a>配置IP地址伪装</h2><h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone<span class="token operator">=</span>external --query-masquerade<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="配置IP地址伪装"><a href="#配置IP地址伪装" class="headerlink" title="配置IP地址伪装"></a>配置IP地址伪装</h2><h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone=external --query-masquerade<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="打开"><a href="#打开" class="headerlink" title="打开"></a>打开</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone<span class="token operator">=</span>external --add-masquerade<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="打开"><a href="#打开" class="headerlink" title="打开"></a>打开</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone=external --add-masquerade<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone<span class="token operator">=</span>external --remove-masquerade<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone=external --remove-masquerade<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="端口转发"><a href="#端口转发" class="headerlink" title="端口转发"></a>端口转发</h2><ul>
 <li>打开端口转发，首先打开IP地址伪装</li>
 </ul>
-<h3 id="转发-tcp-8080-端口至-8081"><a href="#转发-tcp-8080-端口至-8081" class="headerlink" title="转发 tcp 8080 端口至 8081"></a>转发 tcp 8080 端口至 8081</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone<span class="token operator">=</span>external --add-forward-port<span class="token operator">=</span><span class="token number">8080</span>:porto<span class="token operator">=</span>tcp:toport<span class="token operator">=</span><span class="token number">8081</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="转发-tcp-8080-端口至-8081"><a href="#转发-tcp-8080-端口至-8081" class="headerlink" title="转发 tcp 8080 端口至 8081"></a>转发 tcp 8080 端口至 8081</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone=external --add-forward-port=8080:porto=tcp:toport=8081<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="转发端口数据至另一个IP的相同端口"><a href="#转发端口数据至另一个IP的相同端口" class="headerlink" title="转发端口数据至另一个IP的相同端口"></a>转发端口数据至另一个IP的相同端口</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone<span class="token operator">=</span>external --add-forward-port<span class="token operator">=</span><span class="token number">8080</span>:porto<span class="token operator">=</span>tcp:toaddr<span class="token operator">=</span><span class="token number">192.168</span>.43.122<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="转发端口数据至另一个IP的相同端口"><a href="#转发端口数据至另一个IP的相同端口" class="headerlink" title="转发端口数据至另一个IP的相同端口"></a>转发端口数据至另一个IP的相同端口</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone=external --add-forward-port=8080:porto=tcp:toaddr=192.168.43.122<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="转发8080端口数据至另一个IP的8081端口"><a href="#转发8080端口数据至另一个IP的8081端口" class="headerlink" title="转发8080端口数据至另一个IP的8081端口"></a>转发8080端口数据至另一个IP的8081端口</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone<span class="token operator">=</span>external --add-forward-port<span class="token operator">=</span><span class="token number">8080</span>:porto<span class="token operator">=</span>tcp:toport<span class="token operator">=</span><span class="token number">8081</span>:toaddr<span class="token operator">=</span><span class="token number">192.168</span>.43.112<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="转发8080端口数据至另一个IP的8081端口"><a href="#转发8080端口数据至另一个IP的8081端口" class="headerlink" title="转发8080端口数据至另一个IP的8081端口"></a>转发8080端口数据至另一个IP的8081端口</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone=external --add-forward-port=8080:porto=tcp:toport=8081:toaddr=192.168.43.112<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
             </div>
